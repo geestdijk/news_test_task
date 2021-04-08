@@ -15,7 +15,7 @@ class NewAdminForm(forms.ModelForm):
 
 
 @admin.register(New)
-class NewAdmin(admin.ModelAdmin):
+class NewAdminModel(admin.ModelAdmin):
     form = NewAdminForm
     list_display = ['__str__', 'date_added', 'user', ]
     ordering = ['-date_added', ]

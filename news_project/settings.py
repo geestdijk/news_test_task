@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #third-party apps
     'ckeditor',
+    'rest_framework',
     # project apps
     'core',
 ]
