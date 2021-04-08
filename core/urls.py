@@ -8,7 +8,7 @@ router = DefaultRouter()
 router.register('news', views.NewViewSet)
 
 
-app_name = 'recipe'
+app_name = 'core'
 
 urlpatterns = [
     path('', include(router.urls)),

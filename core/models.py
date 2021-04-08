@@ -8,7 +8,7 @@ class New(models.Model):
     user = models.ForeignKey(
         get_user_model(), related_name="news", on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
-    slug = models.SlugField(unique=True, blank=True)
+    slug = models.SlugField(unique=True, blank=True, max_length=255)
     content = models.TextField(blank=True)
     date_added = models.DateTimeField(auto_now_add=True, auto_created=True)
 

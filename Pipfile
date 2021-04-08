@@ -10,6 +10,11 @@ django-ckeditor = "*"
 djangorestframework = "*"
 
 [dev-packages]
+pytest = "*"
+pytest-cov = "*"
+pytest-django = "*"
+pytest-sugar = "*"
+model-bakery = "*"
 
 [requires]
 python_version = "3.8"
