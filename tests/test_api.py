@@ -93,7 +93,6 @@ class TestAdminUserAPI:
         self.client = client
         self.client.force_authenticate(user=self.active_user)
 
-
     def test_update_single_new_object_put_method(self, story_data):
         created_new = New.objects.create(**story_data)
         pk_str = f"{New.objects.last().pk}/"

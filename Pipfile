@@ -8,6 +8,9 @@ django = "*"
 psycopg2-binary = "*"
 django-ckeditor = "*"
 djangorestframework = "*"
+celery = "*"
+redis = "*"
+faker = "*"
 
 [dev-packages]
 pytest = "*"
