@@ -19,6 +19,11 @@ from celery.schedules import crontab
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 
+# debug-toolbar settings
+INTERNAL_IPS = [
+    '127.0.0.1',
+    'localhost',
+]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -45,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # third-party apps
+    'debug_toolbar',
     'ckeditor',
     'rest_framework',
     # project apps
@@ -52,6 +58,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -59,7 +66,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'news_project.middleware.AddCommentMiddleware',
 ]
 
 ROOT_URLCONF = 'news_project.urls'
@@ -76,6 +82,7 @@ TEMPLATES = [
                 'core.custom_context_processor.template_renderer',
             ],
             'loaders': [
+                'django.template.loaders.app_directories.Loader',
                 'news_project.custom_template_loader.Loader',
             ],
         },

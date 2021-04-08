@@ -32,11 +32,12 @@
           </nav>
     </header>
     <main>
-        {% block content %}
         <div class='container'>
+          {% block content %}
             <h2> Hello World </h2>
+          {% endblock content %}
         </div>
-        {% endblock content %}
+        
     </main>
     <footer>
     </footer>

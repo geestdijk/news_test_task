@@ -1,0 +1,9 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+ {% for new in news %}
+    <h2> {{ new }} {{ new.count }}</h2>
+ {% endfor %}
+
+{% endblock content %}

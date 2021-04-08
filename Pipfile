@@ -18,6 +18,7 @@ pytest-cov = "*"
 pytest-django = "*"
 pytest-sugar = "*"
 model-bakery = "*"
+django-debug-toolbar = "*"
 
 [requires]
 python_version = "3.8"
