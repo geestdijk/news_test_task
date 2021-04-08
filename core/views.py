@@ -1,3 +1,4 @@
+from django.views.generic import TemplateView
 from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication
@@ -22,3 +23,7 @@ class NewViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         """Create a new story(new)"""
         serializer.save(user=self.request.user)
+
+
+class IndexView(TemplateView):
+    template_name = "main.html"

@@ -2,7 +2,7 @@ from ckeditor.widgets import CKEditorWidget
 from django import forms
 from django.contrib import admin
 
-from .models import New
+from .models import New, NavigationLink
 
 
 class NewAdminForm(forms.ModelForm):
@@ -19,3 +19,9 @@ class NewAdminModel(admin.ModelAdmin):
     form = NewAdminForm
     list_display = ['__str__', 'date_added', 'user', ]
     ordering = ['-date_added', ]
+
+
+@admin.register(NavigationLink)
+class NavigationLinkAdminModel(admin.ModelAdmin):
+    list_display = ['title', 'link', 'order', 'enabled']
+    ordering = ['order', ]

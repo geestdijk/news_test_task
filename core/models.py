@@ -23,3 +23,19 @@ class New(models.Model):
         db_table = 'news'
         verbose_name = 'New'
         verbose_name_plural = 'News'
+
+
+class NavigationLink(models.Model):
+    """Model for the links in the header"""
+    title = models.CharField(max_length=255)
+    link = models.CharField(max_length=255)
+    order = models.SmallIntegerField(default=0)
+    enabled = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        db_table = "navigation_links"
+        verbose_name = "Navigation link"
+        verbose_name_plural = "Navigation links"
