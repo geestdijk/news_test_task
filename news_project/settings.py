@@ -148,15 +148,25 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 CKEDITOR_BASEPATH = STATIC_URL + 'ckeditor/ckeditor/'
 
-BROKER_URL = 'redis://localhost:6379'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379'
-#CELERY_RESULT_BACKEND = os.environ.get("CELERY_BROKER", "redis://localhost:6379")
+
+BROKER_URL = os.environ.get("CELERY_BROKER", 'redis://localhost:6379')
+CELERY_RESULT_BACKEND = os.environ.get("CELERY_BROKER", 'redis://localhost:6379')
 CELERY_BEAT_SCHEDULE = {
     'create_new_stories': {
         'task': 'core.tasks.new_story',
         'schedule': 300.0,
     },
 }
+
+# HTTPS settings
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
+
+# HSTS settings
+# SECURE_HSTS_SECONDS = 31536000 # 1 year
+# SECURE_HSTS_PRELOAD = True
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
